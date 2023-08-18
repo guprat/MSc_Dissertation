@@ -1,0 +1,343 @@
+% Author: Andrew Gainer-Dewar, 2013
+% This work is licensed under the Creative Commons Attribution 4.0 International License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+\documentclass[11pt]{article}
+\setlength{\parskip}{0.5\baselineskip}%
+\setlength{\parindent}{0pt}%
+\usepackage{ccpaper}
+\usepackage{csquotes}
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad}
+
+% Load in biblatex
+% \usepackage[
+% backend=biber,
+% style=nature,
+% natbib=true
+% ]{biblatex}
+% \addbibresource{ref.bib}
+\usepackage[numbers, sort&compress]{natbib}
+\bibliographystyle{apsrev4-2}
+\usepackage{multicol}
+
+\renewcommand{\bibpreamble}{\begin{multicols}{2}}
+\renewcommand{\bibpostamble}{\end{multicols}}
+% To use a different bibliography style, just change "numeric" to
+% your preferred style (mla for MLA style, alphabetic for Author-Year
+% style, etc.) There are a lot of options; check the BibLaTeX documentation.
+\usepackage{hyperref, graphicx, amsmath}
+\usepackage{microtype}
+\usepackage{amsfonts, amssymb}
+\usepackage{bm}
+\newcommand{\mink}{\eta_{\mu\nu}}
+\renewcommand{\dag}{\dagger}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\munu}{\mu\nu}
+\newcommand{\Hint}{\hat{H}_{\text{int}}}
+
+\title{A Gravitational Twist to Quantum Entanglement}
+\subtitle{Results}
+%Optional. Omit if not wanted.
+\author{Prateek Gupta}
+\date{\today}
+
+% To enable double spacing, uncomment this line:
+%\doublespacing
+
+\begin{document}
+\maketitle{}
+
+\section{Entanglement Due to Quantum Interaction}
+
+Let us assume that the initial state of the matter system is given by,
+\begin{equation}
+    \ket{\psi_i} = \ket{0}_A\ket{0}_B,
+    \label{eq: UnperturbedState}
+\end{equation}
+
+
+Suppose a perturbation is introduced using an interaction potential $\lambda H_{AB}$, where $\lambda$ is a small parameter, between the two systems. Then the perturbed state is given by,
+\begin{equation}
+    \ket{\psi_f} = \frac{1}{\sqrt{\mathcal{N}}} \sum_{n,N} C_{nN} \ket{n}\ket{N} 
+    \label{eq: FinalState}
+\end{equation}
+where $\ket{n}, \ket{N}$ denote number states of A and B respectively, while $\mathcal{N}$ is the normalization given by $\mathcal{N} = \sum_{n,N} |C_{nN}|^2$. We know from Eq. \ref{eq: UnperturbedState} that the coeffitient of the unperturbed state is $C_{00} = 1$. The remaining coefficients are given by \cite{Bose_2022, Bala_2012},
+\begin{equation}
+    C_{nN} = \lambda\frac{\bra{n}\bra{N}\hat{H}_{AB}\ket{0}\ket{0}}{2E_0 - E_n - E_N},
+    \label{eq: CoeffCalc}
+\end{equation}
+where $E_0$ is the ground state (assumed to be the same for both systems for simplicity), and $E_n$ and $E_N$ are the excited state energies.
+
+If we set $A_n \equiv C_{n0}$ and $B_N \equiv C_{0N}$, then we can write the perturbed state as \cite{Bala_2012},
+\begin{equation}
+    \begin{aligned}
+        \ket{\psi_f} &= \frac{1}{\sqrt{\mathcal{N}}} \Bigg( \Big(\ket{0} + \sum_{n>0} A_n \ket{n}\Big)\Big(\ket{0} + \sum_{N>0} B_N \ket{N}\Big) + \sum_{n, N > 0} (C_{nN} - A_nB_N) \ket{n}\ket{N} \Bigg)\\
+    \end{aligned}
+\end{equation}
+
+
+To compute the degree of entanglement, one can calculate two different quantities, the \textit{Concurrence} \cite{PhysRevLett.78.5022, PhysRevA.64.042315}, and the \textit{von Neumann Entanglement Entropy} \cite{Bala_2012, PhysRevA.101.052110}.
+
+The Concurrence is defined by \cite{PhysRevLett.78.5022, PhysRevA.64.042315},
+\begin{equation}
+    C \equiv \sqrt{2(1 - \Tr[\hat{\rho}_A^2])},
+\end{equation}
+where $\hat{\rho}_A$ is the density operator, and can be computed by tracing away the $B$ state as,
+\begin{equation}
+    \begin{aligned}
+        \hat{\rho}_A &= \sum_{N} \braket{N}{\psi_f} \braket{\psi_f}{N} \\
+        &= \frac{1}{\mathcal{N}} \sum_{n,n',N} C_{nN} \ket{n} \braket{N}{N} C^{*}_{n'N} \bra{n'} \braket{N}{N}  \\
+        &= \frac{1}{\mathcal{N}} \sum_{n,n',N} C_{nN}C^{*}_{n'N} \ket{n}\bra{n'}
+    \end{aligned}
+    \label{eq: DensityMatrix}
+\end{equation}
+Thus the trace of $\hat{\rho}_A^2$ is given by, 
+\begin{equation}
+    \begin{aligned}
+        \Tr[\hat{\rho}_A^2] &= \Tr\Bigg[\frac{1}{\mathcal{N}} \sum_{n,n',N} C_{nN}C^{*}_{n'N} \ket{n}\bra{n'} \frac{1}{\mathcal{N}} \sum_{n,n',N'} C_{n'N}C^{*}_{nN} \ket{n'}\bra{n}\Bigg] \\
+        &= \frac{1}{\mathcal{N}^2}\sum_{n,n',N,N'} C_{nN}C^{*}_{n'N} C_{n'N'}C^{*}_{nN'}
+    \end{aligned}
+\end{equation}
+Therefore, the concurrence is given by,
+\begin{equation}
+    C = \sqrt{2\bigg(1 - \frac{1}{\mathcal{N}^2}\sum_{n,n',N,N'}C_{nN}C^{*}_{n'N} C_{n'N'}C^{*}_{nN'}\bigg)}
+    \label{eq: Concurrence}
+\end{equation}
+\begin{note}
+    As it can be seen in Eq. \ref{eq: Concurrence}, the range for the Concurrence is $C \in [0, \sqrt{2}]$. It is $0$ for a separable state and $\sqrt{2}$ for a maximally entangled state. Similarly, for a separable state, the trace of the density operator squared will be $1$ and $0$ for a maximally entangled system.
+\end{note}
+The other measurement of the degree of entanglement is the von Neumann Entanglement Entropy \cite{Bala_2012, PhysRevA.101.052110}. That is given by,
+\begin{equation}
+    \mathcal{S}(\hat{\rho}_A) = -\Tr(\hat{\rho}_A \log{\hat{\rho}_A})
+    \label{eq: Entropy}
+\end{equation}
+This can be calculated relatively easily by calculating the logarithm of the density operator, and remembering that for a diagonalizable matrix $M$, $\log{M} = P\log{D}P^{-1}$, and for a diagonal matrix $D$, $\log{D} = \diag(\log{d_1},\dots,\log{d_n})$.
+
+\section{Quantization of Gravity and Quantum Gravitational Interaction}
+As we want to consider the above setup in a gravitational field, we must understand how the gravitational field is quantized, since we want to work in the regime of small perturbations about the Minkowski background. This section will give a brief overview of the linearization and quantization process of the gravitational field, following \citet{Gupta_1952} closely. The metric is given by $g_{\munu}$, where $\mu, \nu = 0, 1, 2, 3$ and we will use the $(-, +, +, +)$ signature throughout.
+
+Thus, we can get the Hamiltonian Density as,
+\begin{equation}
+    H = t_{00} = \frac{1}{2}\Bigg[\frac{\partial\gamma_{\lambda\rho}}{\partial t}\frac{\partial\gamma_{\lambda\rho}}{\partial t} - \frac{1}{2}\frac{\partial\gamma_{\lambda\lambda}}{\partial t}\frac{\partial\gamma_{\rho\rho}}{\partial t} + \frac{1}{2}\Bigg(\frac{\partial\gamma_{\lambda\rho}}{\partial x_{\sigma}}\frac{\partial\gamma_{\lambda\rho}}{\partial x_{\sigma}} - \frac{1}{2}\frac{\partial\gamma_{\lambda\lambda}}{\partial x_{\sigma}}\frac{\partial\gamma_{\rho\rho}}{\partial x_{\sigma}}\Bigg)\Bigg]
+\end{equation}
+
+\subsection{Canonical Quantization of Gravity}
+We can now write the Lagrangian Density for the linear gravitational field as,
+\begin{equation}
+    L = -\frac{1}{4}\Bigg(\frac{\partial\gamma_{\munu}}{\partial x_{\lambda}}\frac{\partial\gamma_{\munu}}{\partial x_{\lambda}} - \frac{1}{2}\frac{\partial\gamma}{\partial x_{\lambda}}\frac{\partial\gamma}{\partial x_{\lambda}}\Bigg),
+\end{equation}
+where $\gamma \equiv \mink \gamma^{\munu}$ and $h_{\munu} = \gamma_{\munu} - \frac{1}{2}\mink\gamma$. $\gamma$ is Spin$-0$ and $\gamma_{\munu}$ is Spin$-2$. The field equations and the Hamiltonian Density are,
+\begin{equation}
+    \Box^2\gamma_{\munu} = 0,\qquad \Box^2\gamma = 0
+\end{equation}
+\begin{equation}
+    H = \frac{1}{2}\Bigg[\frac{\partial\gamma_{\munu}}{\partial t}\frac{\partial\gamma_{\munu}}{\partial t} - \frac{1}{2}\frac{\partial\gamma}{\partial t}\frac{\partial\gamma}{\partial t} + \frac{1}{2}\Bigg(\frac{\partial\gamma_{\munu}}{\partial x_{\lambda}}\frac{\partial\gamma_{\munu}}{\partial x_{\lambda}} - \frac{1}{2}\frac{\partial\gamma}{\partial x_{\lambda}}\frac{\partial\gamma}{\partial x_{\lambda}}\Bigg)\Bigg].
+    \label{eq: HamiltonianDensity}
+\end{equation}
+Now, for the commutation relations for $\gamma_{\munu}$ and $\gamma$: the commutation relation we get is,
+\begin{equation}
+    [\gamma_{\munu}(x), \dot{\gamma}_{\lambda\rho}(x')] = i(\eta_{\mu\lambda}\eta_{\nu\rho} + \eta_{\mu\rho}\eta_{\nu\lambda})\delta(\bm{x}-\bm{x'}).
+\end{equation}
+Using Schwinger Notation \cite{Gupta_1952, PhysRev.74.1439}, we can write this as,
+\begin{equation}
+    [\gamma_{\munu}(x), \gamma_{\lambda\rho}(x')] = i(\eta_{\mu\lambda}\eta_{\nu\rho} + \eta_{\mu\rho}\eta_{\nu\lambda})D(x-x'),
+\end{equation}
+where $D(x-y)$ is a Green's function similar to the Feynman Propagator for a K-G field (see \citet[§2.4, Eq. 2.59]{Peskin} for more details).
+Similarly, for the ETCR of $\gamma$,
+\begin{equation}
+    [\gamma(x), \gamma(x')] = -4iD(x-x').
+\end{equation}
+Now let us promote the fluctuations around the Minkowski background into quantum operators, giving the mode expansion as \cite{Bose_2022},
+\begin{equation}
+    \hat{h}_{\munu} = \mathcal{A}\int d\bm{k} \sqrt{\frac{\hbar}{2\omega_k(2\pi)^3}}(\hat{P}_{\munu}^{\dagger}(\bm{k})e^{-i\bm{k}\cdot\bm{r}} + \hat{P}_{\munu}(\bm{k})e^{i\bm{k}\cdot\bm{r}}),
+\end{equation}
+where $\mathcal{A} = \sqrt{16\pi G/c^2}$, $\bm{k}$ is a three vector, and $\hat{P}_{\munu}^{\dagger}$ \& $\hat{P}_{\munu}$ are the creation and annihilation operators respectively.
+
+
+Then, using the decomposition of $\hat{h}_{\munu}$, we get \cite{Bose_2022},
+\begin{equation}
+    \hat{\gamma}_{\munu} = \mathcal{A}\int d\bm{k} \sqrt{\frac{\hbar}{2\omega_k(2\pi)^3}}(\hat{P}_{\munu}^{\dagger}(\bm{k})e^{-i\bm{k}\cdot\bm{r}} + \hat{P}_{\munu}(\bm{k})e^{i\bm{k}\cdot\bm{r}}),
+\end{equation}
+\begin{equation}
+    \hat{\gamma} = 2\mathcal{A}\int d\bm{k} \sqrt{\frac{\hbar}{2\omega_k(2\pi)^3}}(\hat{P}^{\dagger}(\bm{k})e^{-i\bm{k}\cdot\bm{r}} + \hat{P}(\bm{k})e^{i\bm{k}\cdot\bm{r}}).
+\end{equation}
+Using the above commutation relations, and methods similar to those for finding the commutation relations of the creation and annihilation operators for a K-G field (see \citet[chap. 2]{Peskin}), we get \cite{Bose_2022},
+\begin{equation}
+    [\hat{P}_{\munu}(\bm{k}), \hat{P}_{\lambda\rho}^{\dagger}(\bm{k'})] = (\eta_{\mu\lambda}\eta_{\nu\rho} + \eta_{\mu\rho}\eta_{\nu\lambda})\delta(\bm{k} - \bm{k'}),
+\end{equation}
+\begin{equation}
+    [\hat{P}(\bm{k}), \hat{P}^{\dagger}\bm{k'}] = -\delta(\bm{k} - \bm{k'}).
+\end{equation}
+Substituting the mode expansions of $\gamma_{\munu}$ and $\gamma$ in the Hamiltonian Density (Eq. \ref{eq: HamiltonianDensity}), and using the above commutation relations for the mode operators, we get that the Hamiltonian for the graviton is given by \cite{Bose_2022, Gupta_1952},
+\begin{equation}
+    \hat{H}_g = \int d\bm{k}\,\hbar\omega_k\bigg(\frac{1}{2}\hat{P}_{\munu}^{\dagger}(\bm{k})\hat{P}^{\munu}(\bm{k}) - \hat{P}^{\dagger}(\bm{k})\hat{P}(\bm{k})\bigg).
+    \label{eq: GravitonHamiltonian}
+\end{equation}
+This completes the canonical quantization of linear gravity.
+\subsection{Quantum Gravitational Interaction}
+For our purpose of quantifying the entanglement, we are more interested in the \textit{shift} of the energy of the graviton vacuum, arising from interactions with matter. According to \citet{weinberg}, the operator valued interaction Hamiltonian is given by,
+\begin{equation}
+    \hat{H}_{\text{int}} = -\frac{1}{2}\int d\bm{r} \hat{h}^{\munu}(\bm{r})\hat{T}_{\munu}(\bm{r}),
+    \label{eq: InteractionHamiltonian}
+\end{equation}
+where $\bm{r}$ is a three-vector.
+
+The main contributor to the shift in energy is the second order term, given by \cite{Bose_2022},
+\begin{equation}
+    \Delta \hat{H}_{g} \equiv \sum \int d\bm{k} \,\frac{\bra{0}\Hint\ket{\bm{k}}\bra{\bm{k}}\Hint\ket{0}}{E_0 - E_{\bm{k}}},
+    \label{eq: GenShiftHg}
+\end{equation}
+where the sum indicates summation over all one particle projectors $\ket{\bm{k}}\bra{\bm{k}}$, and $E_{\bm{k}} = E_0 + \hbar\omega_k$.
+\section{Entanglement via the Graviton}
+We will consider two cases, one in which the coupling is induced by the component $\hat{T}_{00}$ in the static limit, and by the full Stress-Energy tensor $\hat{T}_{\munu}$ in the non-static case.
+\subsection{Entanglement in the Static Limit}
+Consider two particles of mass $m$. The Stress-Energy tensor then, in the static limit is,
+\begin{equation}
+    \hat{T}_{00}(\bm{r}) \equiv mc^2 (\delta(\bm{r} - \hat{\bm{r}}_A) + \delta(\bm{r} - \hat{\bm{r}}_B),
+    \label{eq: T00R}
+\end{equation}
+where $\hat{\bm{r}}_A = (\hat{x}_A, 0, 0)$ and $\hat{\bm{r}}_B = (\hat{x}_B, 0, 0)$ represent the positions of the matter system. We can do a Fourier Transform of Eq. \ref{eq: T00R}, and we get,
+\begin{equation}
+    \begin{aligned}
+        \hat{\tilde{T}}_{00}(\bm{r}) &= \frac{mc^2}{\sqrt{(2\pi)^3}} (e^{-i\bm{k}\cdot\bm{r}_A} + e^{-i\bm{k}\cdot\bm{r}_B}). 
+    \end{aligned}
+    \label{eq: T00K}
+\end{equation}
+Now, we can calculate the interaction Hamiltonian for the static limit, which is given by,
+\begin{equation}
+    \begin{aligned}
+        \Hint &= -\frac{1}{2} \int d\bm{r} \hat{h}^{\munu}(\bm{r})\hat{T}_{\munu}(\bm{r}) \\
+        &= -\frac{1}{2} \int d\bm{r} \hat{h}^{00}(\bm{r})\hat{T}_{00}(\bm{r}) \\
+        &= -\frac{1}{2} \int d\bm{r} \Big(\hat{\gamma}_{00}(\bm{r}) + \frac{1}{2}\hat{\gamma}(\bm{r})\Big)\hat{T}_{00}(\bm{r}) \\
+        &= -\frac{1}{2} \int d{\bm{r}} \mathcal{A}\int d\bm{k'} \sqrt{\frac{\hbar}{2\omega_{k'} (2\pi)^3}}\Big(\hat{P}_{00}^{\dagger}(\bm{k'})e^{-i\bm{k'}\cdot\bm{r}} + \hat{P}_{00}(\bm{k'})e^{i\bm{k'}\cdot\bm{r}} \\ 
+        &\qquad\qquad\qquad+ \hat{P}^{\dagger}(\bm{k'})e^{-i\bm{k'}\cdot\bm{r}} + \hat{P}(\bm{k'})e^{i\bm{k'}\cdot\bm{r}}\Big)\hat{T}_{00}(\bm{r})
+    \end{aligned}
+\end{equation}
+As shown above in Eq. \ref{eq: GenShiftHg}, in the shift of the graviton vacuum energy, there are no first order contributions, and the main contributions come from the second order perturbation term. In this case the second order perturbation term is,
+\begin{equation}
+    \Delta \hat{H}_{g} = \int d\bm{k}\,\frac{\bra{0}\Hint\ket{\bm{k}}\bra{\bm{k}}\Hint\ket{0}}{E_0 - E_{\bm{k}}},
+\end{equation}
+where $\ket{k} = (\hat{P}_{00}^{\dagger}(\bm{k}) + \hat{P}^{\dagger}(\bm{k})) \ket{0}$ is the one particle state constructed in the unperturbed background, $E_{\bm{k}} = E_0 + \hbar\omega_k$ is the energy of the one particle state and $E_0$ is the energy of the vacuum state. The mediated graviton is off shell, which is why there is an integration over $\bm{k}$, and hence the graviton does not obey classical equations of motion.
+
+In the static limit, 
+\begin{equation}\label{eq:Newton}
+    \Delta \hat{H}_{g} = -\frac{Gm^2}{|\hat{x}_A - \hat{x}_B|} \approx -\frac{Gm^{2}}{d}+\frac{Gm^{2}}{d^{2}}(\delta\hat{x}_{B}-\delta\hat{x}_{A})-\frac{Gm^{2}}{d^{3}}(\delta\hat{x}_{B}-\delta\hat{x}_{A})^{2}.
+\end{equation}
+Thus, interaction Hamiltonian is,
+\begin{equation}
+\hat{H}_{\text{AB}}\equiv\frac{2Gm^{2}}{d^{3}}\delta\hat{x}_{A}\delta\hat{x}_{B} \approx \hbar\mathfrak{g}(\hat{a}\hat{b}+\hat{a}^{\dagger}\hat{b}+\hat{a}\hat{b}^{\dagger}+\hat{a}^{\dagger}\hat{b}^{\dagger}),
+\end{equation}
+where $\mathfrak{g}$ is the coupling defined to be,
+\begin{equation}
+\mathfrak{g}\equiv\frac{Gm}{d^{3}\omega_{m}}.
+\end{equation}
+Final state is,
+\begin{equation}
+\vert\psi_{\text{f}}\rangle\equiv\frac{1}{\sqrt{1+(\mathfrak{g}/(2\omega_{m}))^{2}}}[\vert0\rangle\vert0\rangle-\frac{\mathfrak{g}}{2\omega_{m}}\vert1\rangle\vert1\rangle],
+\end{equation}
+and thus the Concurrence is,
+\begin{equation}
+C\equiv\sqrt{2(1-\frac{1+(\mathfrak{g}/(2\omega_{m}))^{4}}{1+(\mathfrak{g}/(2\omega_{m}))^{2}})}\approx\frac{\mathfrak{g}}{\omega_{m}}\implies C \approx \frac{Gm}{d^{3}\omega_{m}^{2}},
+\end{equation}
+
+Entanglement Entropy is given by,
+\begin{equation}
+    \mathcal{S}_A = \log\Bigg(1+ \Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2\Bigg) - \frac{2\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2}{1+\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2}\log\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)
+\end{equation}
+The approximation is,
+\begin{equation}
+    \mathcal{S}_A \approx \Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2 \Big(1 - 2\log\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)\Big) + \Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^4 \Big(2\log\Big(\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)\Big) - \frac{1}{2}\Big)
+\end{equation}
+
+This is the Newtonian limit.
+
+\subsection{Non-Static Limit}
+These are relativistic corrections to the Newtonian limit. Incidentally, only the coupling changes over all, so in terms of the final results,
+\begin{equation}
+C\equiv\sqrt{2(1-\frac{1+(\mathfrak{g}/(2\omega_{m}))^{4}}{1+(\mathfrak{g}/(2\omega_{m}))^{2}})}\approx\frac{\mathfrak{g}}{\omega_{m}}
+\end{equation}
+and
+\begin{equation}
+    \mathcal{S}_A \approx \Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2 \Big(1 - 2\log\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)\Big) + \Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^4 \Big(2\log\Big(\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)\Big) - \frac{1}{2}\Big).
+\end{equation}
+The coupling changes for each correction.
+\subsubsection{Correction 1}
+$H_{\text{AB}}$ is,
+\begin{equation}
+\hat{H}_{AB}\sim4\frac{G\hat{p}_{A}\hat{p}_{B}}{c^{2}d}+\cdots \approx \hbar\mathfrak{g}(\hat{a}^{\dagger}-\hat{a})(\hat{b}^{\dagger}-\hat{b}),
+\end{equation}
+where coupling is,
+\begin{equation}
+\mathfrak{g}=\frac{2Gm\omega_{\text{m}}}{c^{2}d}
+\end{equation}
+Final state is,
+\begin{equation}
+\vert\psi_{\text{f}}\rangle\equiv\frac{1}{\sqrt{1+(\mathfrak{g}/(2\omega_{m}))^{2}}}[\vert0\rangle\vert0\rangle-\frac{\mathfrak{g}}{2\omega_{m}}\vert1\rangle\vert1\rangle].
+\end{equation}
+
+\subsubsection{Correction 2}
+$H_{\text{AB}}$ is,
+\begin{equation}
+\hat{H}_{AB}\sim-\frac{9G\hat{p}_{A}^{2}\hat{p}_{B}^{2}}{4c^{4}m^{2}d}+\cdots\approx-\hbar\mathfrak{g}(\hat{a}^{\dagger}-\hat{a})^{2}(\hat{b}^{\dagger}-\hat{b})^{2}
+\end{equation}
+where coupling is,
+\begin{equation}
+\mathfrak{g}=\frac{9G\hbar\omega_{\text{m}}^{2}}{16c^{4}d}
+\end{equation}
+Final state is,
+\begin{equation}
+\vert\psi_{\text{f}}\rangle\equiv\frac{1}{\sqrt{1+(\mathfrak{g}/(2\omega_{m}))^{2}}}[\vert0\rangle\vert0\rangle+\frac{\mathfrak{g}}{2\omega_{m}}\vert2\rangle\vert2\rangle].
+\end{equation}
+
+\subsection{Static Limit from first principles}
+The action for linearized gravity coupled to matter is
+\begin{equation}
+\begin{aligned}
+	S_{h} = \frac{c^4}{64 \pi G} \int d^4 x \Big( &-\partial_{\rho} h_{\mu \nu} \partial^{\rho} h^{\mu \nu} + 2 \partial_{\rho} h_{\mu \nu} \partial^{\nu} h^{\mu \rho} 
+	- 2 \partial_{\nu} h^{\mu \nu} \partial_{\mu} h + \partial^{\mu} h \partial_{\mu} h \Big)
+	+ \frac{1}{2} \int d^4 x \,h_{\mu \nu} T^{\mu \nu},
+\end{aligned}
+\end{equation}
+The Euler-Lagrange equations for the field are
+\begin{equation}
+	\Box h_{\mu \nu} = -\frac{16 \pi G}{c^4} \bar{T}_{\mu \nu}.
+\end{equation}
+Using Lorenz gauge, where $\partial^{\nu} (h_\munu - \frac12 \eta_\munu h) = 0$, we get, when the field is taken on shell,
+\begin{equation}
+	S_{h} = \frac{1}{4} \int d^4x \; h_{\mu \nu} T^{\mu \nu}.
+\end{equation}
+The stress--energy tensor for $N$ point masses is
+ \begin{equation} \label{TmunuG-supp} 
+ 	T^{\mu \nu} (t,\bm{x}) = \sum_{a=1}^N m_a  \delta^{(3)} (\bm{x} - \bm{x}_a(t)) V_a^{\mu \nu} (t)
+ \end{equation}
+where
+\begin{equation}
+  V^{\mu \nu}_a(t) = \gamma_a (t) v_{a}^{\mu}(t) v_{a}^{ \nu}(t)
+\end{equation}
+with $v^{\mu}_a(t) = (c, \bm{v}_a )$, where $\bm{v}_a= d\bm x_a / dt$ is the velocity of particle $a$ and $\gamma_a(t) =  (1 - \vert\bm{v}_a(t)\vert^2/c^2)^{-1/2}$ the corresponding Lorentz factor.
+
+The solution to the field equations is,
+\begin{equation}
+	h^{\mu \nu}(t,\bm{x}) =  \frac{4 G }{c^4} \sum_a   \frac{m_a \bar{V}^{\mu \nu}_a(t_a)}{d_a - \bm{d}_a \cdot \bm{v}_a(t_a)/c},
+\end{equation}
+where, $\bar{V}^{\mu \nu}_a(t_a) = V^{\mu \nu}_a(t_a) - \frac{1}{2}\mink V_a(t_a)$.
+
+Thus the action becomes,
+\begin{equation}
+    S_h = \frac{G}{c^4}\sum_{a,b}\int dt \frac{m_a m_b  \bar V_a^\munu(t_{ab}) V_{b\munu}(t)}{d_{ab}-\bm d_{ab}\cdot\bm v_{a}(t_{ab})/c}.
+\end{equation}
+
+In the slow motion limit, this becomes,
+\begin{equation}
+	S_{h} \approx \frac{1}{2} G \sum_{a,b}^{a \neq b}  \int \! dt \, \frac{m_a m_b}{d_{ab}(t)}.
+\end{equation}
+
+This is similar to the Newtonian potential found in Eq. \ref{eq:Newton}.
+
+\newpage
+    \bibliography{ref}
+\end{document}

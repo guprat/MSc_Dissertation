@@ -1,0 +1,232 @@
+\documentclass[12pt,a4paper]{report}
+
+% Start document preamble.
+% The fullpage package sets up the margin for the entire document.
+\usepackage{fullpage}
+% \usepackage{geometry}
+% \geometry{a4paper, margin=0.9in}
+
+% For image and graphics support.
+\usepackage{graphics}
+\usepackage{epsf,graphicx}
+\usepackage[framemethod=tikz]{mdframed}
+
+\mdfdefinestyle{mystyle}{%
+  rightline=true,
+  innerleftmargin=10,
+  innerrightmargin=10,
+  outerlinewidth=3pt,
+  topline=false,
+  rightline=true,
+  bottomline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+}
+
+% To use a different bibliography style, just change "numeric" to
+% your preferred style (mla for MLA style, alphabetic for Author-Year
+% style, etc.) There are a lot of options; check the BibLaTeX documentation.
+\usepackage[numbers, sort&compress]{natbib}
+\bibliographystyle{apsrev4-2}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+% \usepackage{multicol}
+% \renewcommand{\bibpreamble}{\begin{multicols}{2}}
+% \renewcommand{\bibpostamble}{\end{multicols}}
+
+% The microtype package fixes a lot of small typographical things.
+% They're hard to see, but your eyes will thank you!
+\usepackage{microtype}
+
+% We should support UTF-8 in the input file (since it is the twenty-first
+% century, after all)
+\usepackage[utf8]{inputenc}
+
+% And we should use T1 for the output encoding, because the default results
+% in a big mess with accented characters in the PDF
+\usepackage[T1]{fontenc}
+
+% The Babel package modernizes the hyphenation routines.
+% Here, we configure it to use UK English.
+\usepackage[british]{babel}
+% \renewcommand{\bibsection}{\chapter*{References}}
+
+% The titling package allows us to rewrite the \maketitle command easily.
+\usepackage{titling}
+
+% The setspace package lets us adjust line spacing
+\usepackage{setspace}
+\usepackage{xspace}
+
+% The enumerate package is used to enhance enumerated lists
+\usepackage{enumerate}
+
+% The csquotes package provides nice facilities for quotations.
+\usepackage[babel]{csquotes}
+
+% The amsthm package lets us set up theorem-like environments
+\usepackage{amsthm}
+\usepackage{amsmath}
+% \usepackage{physics} % I dislike this package a bit, so not using it.
+
+% The mathtools and amssymb packages provide some important mathematical support
+\usepackage{amsfonts, amssymb, mathtools, amstext}
+\usepackage{bm}
+
+% The booktabs package facilitates high-quality table formatting.
+\usepackage{booktabs}
+
+% The hyperref package sets up PDF hyperlinks and other fanciness.
+% WARNING: THIS MUST BE THE LAST PACKAGE LOAD
+\usepackage{url}
+\usepackage{hyperref}
+
+% The cleveref package handles a lot of fanciness with internal cross-references.
+% Curiously, it has to come *after* hyperref.
+\usepackage[capitalize]{cleveref}
+\crefname{equation}{equation}{equations}
+\Crefname{equation}{Equation}{Equations}
+
+%% DEFINE COMMANDS
+
+% We create some theorem-like environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{observation}[theorem]{Observation}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{observation*}{Observation}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{definition*}{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{example*}{Example}
+
+\newtheorem{note}[theorem]{Note}
+\newtheorem*{note*}{Note}
+
+% The mathtools package provides facilities for many mathematical tasks.
+% In particular, it sets up nice commands for formatting braces.
+\DeclarePairedDelimiter{\pbrac}{(}{)}
+\DeclarePairedDelimiter{\sbrac}{[}{]}
+\DeclarePairedDelimiter{\cbrac}{\{}{\}}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+% Custom physics notation and shorthands because I am tired of repeating it
+% everywhere.
+\newcommand{\mink}{\eta_{\mu\nu}}
+\renewcommand{\dag}{\dagger}
+\newcommand{\munu}{\mu\nu}
+\newcommand{\Hint}{\hat{H}_{\text{int}}}
+\newcommand{\BigO}{\mathcal{O}}
+
+% The bra and ket notation.
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Some common matrix notations.
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+
+% Preamble end. Begin Dissertation document.
+\begin{document}
+
+\thispagestyle{empty}
+
+%
+%	This is a basic LaTeX Template for the TP/MP MSc Dissertation report
+
+\parindent=0pt          %  Switch off indent of paragraphs 
+\parskip=5pt            %  Put 5pt between each paragraph  
+
+%	This section generates a title page
+%       Edit only the sections indicated to put in the project title, and submission date
+
+\vspace*{0.1\textheight}
+
+\begin{center}
+        \huge{\bfseries A Gravitational Twist To Quantum Entanglement}\\ Introduction% Replace with the title of your dissertation!
+\end{center}
+
+% \begin{center}
+%         \huge{\bfseries A Brief Treatise on Gravitationally Induced Quantum Entanglement}\\ Draft Chapters% Replace with the title of your dissertation!
+% \end{center}
+
+\medskip
+
+\begin{center}
+        \Large{Prateek Gupta}\\  % Author of dissertation - replace with your name!
+        \medskip
+        \large{\today}  % Submission date
+\end{center}
+
+%%% If necessary, reduce the number 0.4 below so the University Crest
+%%% and the words below it fit on the page.
+%%% Don't let the crest, or the wording below it, flow onto the next page!
+
+\vspace*{0.25\textheight}
+
+\begin{center}
+        \includegraphics[width=35mm]{crest.pdf}
+\end{center}
+
+\medskip
+
+\begin{center}
+
+%%%
+%%% Change Theoretical to Mathematical if appropriate
+%%%
+\large{
+  MSc in Theoretical Physics\\[0.8ex]
+  The University of Edinburgh\\[0.8ex]
+  2023}
+
+\end{center}
+\pagenumbering{arabic}
+
+\newpage
+\chapter{Introduction}
+
+To talk about quantum gravity, first I will start with the story about the clash between General Relativity and Quantum Mechanics and how it gave birth to one of the biggest crises known to Physics.
+
+Ten years after Einstein shook the world with the \textit{Annus Mirabilis} papers, which gave the world the Theory of Special Relativity and the world-famous equation for mass-energy equivalence, $E = mc^2$, he shocked the world of physics once again with his General Theory of Relativity, in a series of papers published in 1915. Furthermore, by the end of 1915, he published the Field Equations of Gravity, providing a description of gravity as a geometric property of space and time and how the curvature of the four-dimensional spacetime was directly related to the energy and momentum of matter and radiation \cite{EinsteinFieldEq}. And thus, we had the first classical field theory of gravity. This also forms the basis of the Standard Model of Cosmology we use today.
+
+Around the same time, a group of physicists which included the likes of Max Born, Werner Heisenberg and Wolfgang Pauli, made great strides in the field of quantum mechanics, which govern the mechanics of sub-atomic particles \cite{BornQM, BornHeisen}. However, by the mid-1920s, they hit a seemingly insurmountable problem: quantising the electromagnetic field. They found that to quantise electromagnetism correctly, and they had to quantise the classical field theory of electromagnetism \cite{PauliQE}. Furthermore, since the field equations could be rewritten using Einstein's Relativity theory, they had to incorporate special relativity into their work. Thus, the framework of Quantum Field Theory was born, and by 1927, Paul Dirac published the first theory of Quantum Electrodynamics or QED \cite{DiracFirstQED}. 
+
+Nevertheless, as in any developmental story of a theory, they found more problems. One such problem was the problem of infinities. In the early 1930s, Robert Oppenheimer showed that higher-order perturbative calculations of QED always resulted in infinite values, such as the electron self-energy, which is the energy of the electron had as a result of changes that it causes in its environment, or the vacuum zero point energy of photon and electrons \cite{Oppie}. Thus, in the 1950s, the concept of renormalisation was introduced by Richard Feynman, Shinichiro Tomonaga \cite{Tomonaga1948OnIF, Fukuda1948ASS}, Julian Schwinger \cite{PhysRev.74.1439}, and Freeman Dyson, for which the first three of them even jointly won the Nobel Prize in Physics \cite{Schweber1994QEDAT}. This framework allowed them to eliminate the problem of infinities in perturbative quantum field theory, and we finally had a more complete theory of Quantum Electrodynamics. 
+
+Thus, the field of Quantum Field Theory boomed. Physicists formulated a quantum field theory of the strong force, which they named Quantum Chromodynamics, unified the Weak and Electromagnetic forces, and theorised the Higgs Mechanism. Furthermore, by the 1970s, they formulated a Standard Model of Particle Physics incorporating all of these theories, and we now had a model where three of the four fundamental forces were governed by the laws of Quantum Field Theory.
+
+Surely, physicists thought at the time, if Quantum Field Theory could describe three of the four fundamental forces, the final known fundamental force, gravity, would be no different. They thought that finally, finally, they could grasp a Unified Theory which could explain everything. Thus, Einstein's field theory equations, published in 1915, met the new and improved framework of Quantum Field Theory. However, as always, luck was not on the side of the physicists. It turned out that Einstein's Field Theory for Gravity was extraordinarily incompatible with the framework of Quantum Field Theory. Not only did classical General Relativity have singularities, like singularities in Black Holes and the Big Bang singularity, but it also had UV behaviour near Planck scales. 
+
+However, the biggest of these problems was that the field equations had a coupling with units, $G_N$, which made the field equations utterly non-renormalisable, and without renormalizability, a quantum field theory could not be generated. Several theories have been proposed to circumvent or counter this. Examples include String Theory, a framework in which the point-like particles are replaced by one-dimensional objects called strings \cite{Tong_2009}; Loop Quantum Gravity; Supergravity, which employs the framework of Superstring theory; or Double Copy Theory, which hypothesises a perturbative duality between gauge theory and gravity \cite{DoubleCopy}. Moreover, many of these theories are highly untestable by experiments or have huge inconsistencies which are yet to be resolved.
+
+Even then, one could say that General Relativity contains the seeds of its own destruction \cite{Tong_2009}. We can say that the singularities, the UV behaviour, and the non-renormalizability are all \textit{known} unknowns or known problems that need to be solved for a theory of quantum gravity. However, the theory could host several \textit{unknown} unknowns, problems we did not even know existed. One such problem, as some physicists have pointed out, mainly because of the lack of experiments, is the question about the nature of gravity itself. Is gravity even quantisable in the first place? Does it even have a quantum nature? Because if it is not quantisable and does not have a quantum nature, we must look into different theories to resolve the problems of singularities and divergent behaviour of General Relativity.
+
+To this end, many physicists in the 21st Century have developed various gedankenexperiments \cite{PhysRevD.98.126009, doi:10.1142/S0218271819430016}, or thought experiments, and tabletop experiments. I will briefly introduce one such experiment called the Bose-Marletto-Vedral (BMV) \cite{Bose_2017, Marletto_2017} experiment in the next chapter, but the main feature of many of these experiments, including the BMV experiment, include entanglement due to gravitational interactions. This is because all quantum interactions induce entanglement, as I will also show in the next chapter. And if gravity can induce entanglement, then indeed, one could say with some certainty that gravity has a quantum nature.
+
+In this dissertation, I will first explain the concepts behind the BMV experiment, and how it uses a few central principles of Quantum Information Theory, how quantum interactions can induce entanglement within a system of two quantum harmonic oscillators, and how to calculate two separate measures of entanglement called Concurrence and Entanglement Entropy \cite{Bose_2022}. I will then briefly describe how one can linearise Einstein's Field equations and then quantise them using canonical quantisation \cite{Gupta_1952}. I will also describe how we could use this quantisation as a driving force for the interaction between the quantum oscillators.
+
+I will also show how we can derive the same interaction Hamiltonian from first principles and how the slow-motion approximation of the action for an $N$ point masses would yield an action with potential energy similar to that of a Newtonian gravitational potential energy \cite{Christodoulou_2023b}.
+
+I will then go back and describe a proposed mechanism for gravity to entangle the two quantum harmonic oscillators and show that if we were to calculate a shift in the energy of the quantised graviton from the earlier canonical quantisation is also the same as the Newtonian gravitational potential energy between two bodies. I will then derive the concurrence \cite{Bose_2022} and entanglement entropy, the two measures of entanglement, for these interactions, and analyse the results in more depth.
+
+Finally, I will conclude with the implications and summary of the results and potential experiments that one can conduct to see evidence of this mechanism and the consequences of these results for the story of quantum gravity.
+
+\newpage
+\bibliography{ref}
+\end{document}
