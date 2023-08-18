@@ -229,8 +229,7 @@
 \pagenumbering{roman}
 
 \begin{abstract}
-This is where you summarise the contents of your dissertation. It should be
-at least 100 words, but not more than 250 words.
+Understanding gravity in the framework of quantum mechanics is one of the most significant challenges in modern physics. The challenge comes from the clash between general relativity and quantum mechanics. General Relativity has proven to be extraordinarily incompatible with the framework of Quantum Field Theory. So much so that some even argue whether gravity could be quantized in the first place. Several attempts have been made to probe this question of the nature of gravity. This paper details one of the alternative directions to probe this question: by studying the entanglement that could be produced between two bodies if gravity was a quantum entity. We consider the example of two harmonic oscillators and consider two cases. One when they are static and one when they are non-static. By relying on quantum perturbation theory, we compute entanglement entropy and concurrence for each case for a quantum gravitational interaction. We show that these two quantities are positive for all cases and that should gravity be a quantum entity, these values can be tested experimentally. We finally conclude by considering what kind of future work can be undertaken in this new direction.
 \end{abstract}
 
 \pagenumbering{roman}
@@ -1240,7 +1239,7 @@ Next, let us look at concurrence. First let us write down the common expression 
 \end{equation}
 If one was to calculate the maximum of this function, they would find that the maximum value of this expression is $1$ for $\mathfrak{g}/(2\omega_{m}) = 1$. But it was previously stated in Sec. \ref{sec: QHOs} under Eq. \ref{eq: Concurrence} that the maximum value of concurrence for a maximally entangled state of a system with an infinite-dimensional Hilbert space is $\sqrt{2}$. And as we know, $1$D Quantum Harmonic Oscillators do have infinite dimensional Hilbert spaces. So what is going on? Well, this is a feature of the perturbative nature of our calculations. For each case, we took the interaction Hamiltonian as the lowest order interaction term, which only produced a final state which was a linear combination of only two states. So effectively, we reduced the dimensionality of the Hilbert space of the system from infinite to two. And for a two dimensional Hilbert space, the concurrence has a maximum value of $1$, because the minimum value of purity, $\gamma = \Tr[\rho_A^2]$ becomes $1/2$. This just tells us that our perturbative calculations are only valid when $\mathfrak{g}/(2\omega_{m}) \ll 1$, which was also the basis of our approximation.
 
-Now let us look at the graph of concurrence plotted against distance in Fig. \ref{fig: Concurrence}. The graph shows a plot of the coupling as a function of the distance between the two bodies, for all three cases. Again, constant values of mass and $\omega_m$ were chosen as $10^{-14}$ kg and $10^8$ Hz respectively.
+Now let us look at the graph of concurrence plotted against distance in Fig. \ref{fig: Concurrence}. The graph shows a plot of the concurrence as a function of the distance between the two bodies, for all three cases. Again, constant values of mass and $\omega_m$ were chosen as $10^{-14}$ kg and $10^8$ Hz respectively.
 \begin{figure}[h]
     \centering
     \includegraphics[width=15cm]{ConcCases.pdf}
@@ -1267,18 +1266,32 @@ Let us first look at the perturbative expression. Once again, if one was to take
     \label{fig: EE1}
 \end{figure}
 
-Let us now take a look at the graph of the Entanglement Entropy against $\mathfrak{g}/(2\omega_{m})$. Specifically at how much agreement there is between the approximation and the perturbative expressions. The approximation is a bit curious, because it has a term of $\log\big(\mathfrak{g}/(2\omega_{m})\big)$, which cannot be expanded around zero, and yet our approximation has the condition of working best near zero. Thus we had to keep the logarithm term in our expansion. And we can see that this led to a good agreement between the perturbative expression and its expansion. The expressions only seem to diverge when $\mathfrak{g}/(2\omega_{m})$ reaches near $0.3$. But, as stated before, $\mathfrak{g}/(2\omega_{m}) \ll 1$, and thus our expansion works very well with that range.
+Let us now take a look at the graph of the Entanglement Entropy against $\mathfrak{g}/(2\omega_{m})$ in Fig. \ref{fig: EE1}. Specifically at how much agreement there is between the approximation and the perturbative expressions. The approximation is a bit curious, because it has a term of $\log\big(\mathfrak{g}/(2\omega_{m})\big)$, which cannot be expanded around zero, and yet our approximation has the condition of working best near zero. Thus we had to keep the logarithm term in our expansion. And we can see that this led to a good agreement between the perturbative expression and its expansion. The expressions only seem to diverge when $\mathfrak{g}/(2\omega_{m})$ reaches near $0.3$. But, as stated before, $\mathfrak{g}/(2\omega_{m}) \ll 1$, and thus our expansion works very well with that range.
+
+Finally let us take a look at the graph in Fig. \ref{fig: EE2}. The graph shows a plot of the entanglement entropy as a function of the distance between the two bodies, for all three cases. Again, constant values of mass and $\omega_m$ were chosen as $10^{-14}$ kg and $10^8$ Hz respectively.
+
+Once again, we can see that the entanglement entropy grows inversely with distance. How fast it decays depends on the case, but it decays nonetheless. Another feature presented here is that for this range of distances, the static coupling dominates over the other non-static corrections, as can be seen from the scale of each subplot. The static case has the highest entanglement entropy. The coupling and the concurrence also decayed with distance, but the corrections did not have such difference in magnitude. Here, the entanglement entropy is dominant by more than 
+twice the order of magnitude when it comes to the second non-static correction.
+
+We have now computed the entanglement entropy and concurrence and showed that both are positive for a quantum gravitational field.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=15cm]{EECases.pdf}
     \caption{Comparison of Entanglement Entropies for Different Cases:  (a) Static Case; (b) Non-static Correction $1$ (c) Non Static Correction $2$}
-    \label{fig:EE2}
+    \label{fig: EE2}
 \end{figure}
-\newpage
-The code for the visualisation can be found on \url{https://github.com/guprat/MSc_Dissertation}.
+
+The code for the graphs can be found in the Jupyter notebook at \url{https://github.com/guprat/MSc_Dissertation}.
 \newpage
 \chapter{Conclusions}
+We have now obtained all the results we set out to compute, by relying on elementary perturbation theory and some aspects of general relativity. Our results reinforce the idea that a quantum interaction between gravity and matter is crucial to detect entanglement between two bodies, and if gravity is a classical entity, any experiment based on the mechanisms presented here will not yield expected values. To be clear, if gravity turns out to be a classical entity, all work done here will be moot. On the other hand, if it is quantum, then these mechanisms can be used to build experiments and test the nature of gravity.
+
+And there are a number of similar mechanisms and thought experiments that have been proposed, but none that could be tested. If gravity is indeed quantum, then our results corroborate the importance of an experiment on gravitationally induced entanglement, which relies on the fact that two masses can entangle via the graviton. This would be crucial in not only confirming the quantum properties of gravity, but also unveil crucial properties of the graviton, which as of now, is only a hypothetical particle responsible for spacetime fluctuations.
+
+Although these results are important, there is still a lot of room for research into this mechanism. For one, it would be very interesting to study the effect of this mechanism massive bodies. Another possible area of research is the effect of curvature on this mechanism. So far, we have only studied this mechanism on a Minkowskian background. What happens if we switch it out with a deSitter background. How would the curvature play a role in the mechanism to entangle to masses? If two particles get entangled, the results from the deSitter background are surely to differ. 
+
+It makes it all the more worthwhile to study the effect of curvature because the very early universe has been approximated to have a deSitter curvature. And if particles were entangled by this mechanism in the early universe, then this ceases to be a thought experiment anymore, for we would be able to see its evidence in the cosmic microwave background. Those results could be the first step in discovering the elusive secrets of gravity that humanity has been trying to understand for decades, and give clues to settling one of the biggest crises in Physics.
 \newpage
 \bibliography{ref}
 \newpage
