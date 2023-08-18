@@ -329,7 +329,7 @@ In this dissertation, I will first explain the conceptual underpinnings of the B
 
 I will also show how we can derive the same interaction Hamiltonian from first principles and how the slow-motion approximation of the action for an $N$ point masses would yield an action with potential energy similar to that of a Newtonian gravitational potential energy \cite{Christodoulou_2023b}.
 
-I will then go back and describe a proposed mechanism for gravity to entangle the two quantum harmonic oscillators and show that if we were to calculate a shift in the energy of the quantised graviton from the earlier canonical quantisation is also the same as the Newtonian gravitational potential energy between two bodies. I will then derive the concurrence \cite{Bose_2022} and entanglement entropy, the two measures of entanglement, for these interactions. Then, I will analyse the results in more depth and look at the analytical and numerical behaviour.
+I will then go back and describe a proposed mechanism for gravity to entangle the two quantum harmonic oscillators and show that if we were to calculate a shift in the energy of the quantised graviton from the earlier canonical quantisation is also the same as the Newtonian gravitational potential energy between two bodies. I will then derive the concurrence \cite{Bose_2022} and entanglement entropy, the two measures of entanglement, for these interactions. Then, I will analyse the results in more depth and study the analytical and numerical behaviour.
 
 Finally, I will conclude with the implications and summary of the results and potential experiments that one can conduct to see evidence of this mechanism and the consequences of these results for the story of quantum gravity.
 
@@ -360,7 +360,7 @@ Fig \ref{fig:BMV}(b) shows the Stern-Gerlach (SG) interferometry which includes 
 I have now explained the conceptual theory behind the BMV experiment. Detailed information and a nice review about this experiment and its workings, as well as the demanding nature of this experiment, can be found in a separate work done by Han Wang \cite{han} for his Master's dissertation (submitted 2023), and in \citet{Christodoulou_2020}. The main focus of this dissertation is the review and analysis of the concepts behind gravitationally induced entanglement using these concepts.
 
 \section{Entanglement Due to Quantum Interactions} \label{sec: QHOs}
-Let us now look at quantum interactions and how they induce entanglement. Consider a setup of two Quantum Harmonic Oscillators (QHOs) in the presence of a gravitational field, denoted by A and B, located at $\pm d/2$. Assume that the harmonic oscillators are well-localised, such that,
+Let us now study quantum interactions and how they induce entanglement. Consider a setup of two Quantum Harmonic Oscillators (QHOs) in the presence of a gravitational field, denoted by A and B, located at $\pm d/2$. Assume that the harmonic oscillators are well-localised, such that,
 
 \begin{equation}
     \hat{x}_{A}=-\frac{d}{2}+\delta\hat{x}_{A},\qquad \hat{x}_{B}=\frac{d}{2}+\delta\hat{x}_{B},
@@ -705,7 +705,7 @@ The Euler-Lagrange equations for the field are \cite{weinberg, Flanagan_2005, po
 \begin{equation}
     \Box^2h_{\munu} = -\frac{16\pi G}{c^4}\bar{T}_{\munu}
 \end{equation}
-Integrating the first term of the action by parts gives you two terms of the form $h_{\munu}\Box^2h^{\munu}$ and then by applying the E-L equations to those terms, we get the action \cite{Christodoulou_2023b},
+Integrating the first term of the action by parts gives us two terms of the form $h_{\munu}\Box^2h^{\munu}$ and then by applying the E-L equations to those terms, we get the action \cite{Christodoulou_2023b},
 \begin{equation} \label{eq: CovarAct}
     S_h =  \frac{1}{4} \int d^4x \,h_{\mu \nu} T^{\mu \nu}.
 \end{equation}
@@ -932,7 +932,7 @@ We can now use the modes in \ref{eq: ModeOp1} to expand $\Hab$ and get,
     \end{aligned}
 \end{equation}
 where we define the coupling, $\mathfrak{g}$, as,
-\begin{equation}
+\begin{equation} \label{eq: CouplingStat}
     \mathfrak{g} = \frac{Gm}{d^3\omega_m}.
 \end{equation}
 Using $\Hab$ and the definition of the coefficients for the final state from Eq. \ref{eq: CoeffCalc}, we get, using $\lambda = 1$,
@@ -1057,7 +1057,7 @@ At the lowest order in the expansion, $\delta\hat{x}_{A}$ and $\delta\hat{x}_{B}
     \end{aligned}
 \end{equation}
 where the coupling has been  defined as,
-\begin{equation}
+\begin{equation} \label{eq: CouplingNS1}
     \g = \frac{2Gm\omega_m}{c^2d}
 \end{equation}
 Once again, since $\ahat\ket{0} = \bhat\ket{0} = 0$, only relevant term comes from $\ahat^{\dag}\bhat^{\dag}$.
@@ -1092,7 +1092,7 @@ Once again, at the lowest order in the expansion, $\delta\hat{x}_{A}$ and $\delt
     \end{aligned}
 \end{equation}
 where the coupling has been  defined as,
-\begin{equation}
+\begin{equation} \label{eq: CouplingNS2}
     \g = \frac{9G\hbar\omega_m^2}{16c^4d}
 \end{equation}
 Here, the only term of relevance is $(\ahat^{\dag}\bhat^{\dag})^2$, as the other terms will vanish. This signifies that the final state is a linear combination of the ground state and $\ket{2}\ket{2}$. The gravitons also carry twice the energy of the harmonic oscillator, and $\omega_{\bm{k}} = 2\omega_m$. Thus, using Eq. \ref{eq: CoeffCalc}, we get,
@@ -1219,31 +1219,63 @@ Thus, the entanglement entropy is,
 \end{equation}
 \newpage
 \chapter{Analysis and Discussion} \label{chap: Analysis}
-Now that we have the expressions for the 
-\begin{figure}[htb]
+Let us start with summarising what we have done so far. We looked at underpinning concepts of the BMV experiment \cite{Bose_2017, Marletto_2017}. We then saw how quantum interactions induce entanglement between two bodies, and how it is a characteristic trait of quantum interactions. We then wanted to use gravitational interactions as a stand-in for the quantum interactions to see how they would induce entanglement. But for that, we had to first go through the process of linearising Einstein's field equations, and then do a canonical quantization of the equations. Only then could we look at quantum gravitational interactions, and arrive at expression for the shift in the vacuum energy of the graviton.
+
+Before we jumped into entanglement via the graviton, we first looked at how we could arrive at a similar result purely from a General Relativity point of view, and so we found the action for $N$ interacting point masses, which was similar to the shift in vacuum energy of the graviton we already found, and which, at the the slow-motion approximation, also gave us the Newtonian potential back. We then went back to the derived quantization and quantum gravitational interaction, and used it to calculate the shift in the graviton vacuum energy for when the particles were static and when they were non-static. When they were static, we found that the shift for the vacuum energy was equal to the Newtonian potential, a result we were already expecting, thanks to the action for $N$ interacting point masses we derived earlier. 
+
+Then we saw that for the non-static case, not only did we get the Newtonian potential, but two non-static corrections to it, owing to the movement of the particles along the $x$-axis. These results also match those that have been previously obtained through different methods \cite{Bose_2022, Christofoli, yoichi, Hiida, grignani}. We then saw that each of these results were operator valued which could not be produced by an operator valued shift, and that if we considered the underlying gravitational field to be classical, then the final states would never have evolved into an entangled state. We then went ahead and calculated the coupling constants, the concurrence and entanglement entropy.
+
+Now that we have the expressions for the coupling, concurrence and entanglement entropy for each of the three cases, we can take a closer look at their behaviour.
+Let us start with the coupling. The coupling for each of the cases grows as Entanglement grows, and vice versa. All of them also grow inversely with the distance between the two oscillators, but to varying levels. This can be seen in Fig. \ref{fig: Coupling}. The graph shows a plot of the coupling as a function of the distance between the two bodies, for all three cases. Constant values of mass and $\omega_m$ were chosen as $10^{-14}$ kg and $10^8$ Hz respectively. We can see that, with varying degrees, the coupling has an inverse relationship with the distance. Another feature presented here is that for this range of distances, the static coupling dominates over the other non-static corrections, as can be seen from the scale of each subplot.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{Coupling.pdf}
+    \caption{Comparison of Coupling for Different Cases:  (a) Static Case; (b) Non-static Correction $1$ (c) Non Static Correction $2$}
+    \label{fig: Coupling}
+\end{figure}
+
+Next, let us look at concurrence. First let us write down the common expression for concurrence found in each of the three cases. This expression was,
+\begin{equation}
+    C = \sqrt{2\Bigg(1- \frac{1+(\mathfrak{g}/(2\omega_{m}))^{4})}{(1+(\mathfrak{g}/(2\omega_{m}))^{2})^2}\Bigg)} \approx \frac{\mathfrak{g}}{\omega_{m}}
+\end{equation}
+If one was to calculate the maximum of this function, they would find that the maximum value of this expression is $1$ for $\mathfrak{g}/(2\omega_{m}) = 1$. But it was previously stated in Sec. \ref{sec: QHOs} under Eq. \ref{eq: Concurrence} that the maximum value of concurrence for a maximally entangled state of a system with an infinite-dimensional Hilbert space is $\sqrt{2}$. And as we know, $1$D Quantum Harmonic Oscillators do have infinite dimensional Hilbert spaces. So what is going on? Well, this is a feature of the perturbative nature of our calculations. For each case, we took the interaction Hamiltonian as the lowest order interaction term, which only produced a final state which was a linear combination of only two states. So effectively, we reduced the dimensionality of the Hilbert space of the system from infinite to two. And for a two dimensional Hilbert space, the concurrence has a maximum value of $1$, because the minimum value of purity, $\gamma = \Tr[\rho_A^2]$ becomes $1/2$. This just tells us that our perturbative calculations are only valid when $\mathfrak{g}/(2\omega_{m}) \ll 1$, which was also the basis of our approximation.
+
+Now let us look at the graph of concurrence plotted against distance in Fig. \ref{fig: Concurrence}. The graph shows a plot of the coupling as a function of the distance between the two bodies, for all three cases. Again, constant values of mass and $\omega_m$ were chosen as $10^{-14}$ kg and $10^8$ Hz respectively.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{ConcCases.pdf}
+    \caption{Comparison of Concurrence for Different Cases:  (a) Static Case; (b) Non-static Correction $1$ (c) Non Static Correction $2$}
+    \label{fig: Concurrence}
+\end{figure}
+Here we can see that the degree of entanglement grows inversely with distance. Another feature presented here is that for this range of distances, the static coupling dominates over the other non-static corrections, as can be seen from the scale of each subplot. In fact, if we consider the same parameters as the graph, and we consider the first non-static correction and the concurrence for the static case, the first non-static correction would only start to dominate at $d=1$m. And if we were to take the same parameters as the graph and consider the second non-static correction, that would only dominate at $d\approx10^{15}$ m. One important fact here is that our results are different from \citet{Bose_2022}, even though we followed the same methods. The difference is of a factor of $\sqrt{2}$, and it could be that they approximated the concurrence expression differently. Here, I found the first order approximation the usual way, by taking $\mathfrak{g}/(2\omega_{m}) \ll 1$.
+
+Finally let us consider the entanglement entropy. Once again, let us first write down the common expression for Entanglement Entropy found in each of the three cases. This perturbative expression was,
+\begin{equation}
+    \mathcal{S}_A = \log\Bigg(1+ \Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2\Bigg) - \frac{2\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2}{1+\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2}\log\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big),
+\end{equation}
+and we approximated this as,
+\begin{equation}
+     \mathcal{S}_A \approx \Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^2 \Big((1 - 2\log\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)\Big) + \Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big)^4 \Big(2\log\Big(\frac{\mathfrak{g}}{2\omega_{m}}\Big) - \frac{1}{2}\Big).
+\end{equation}
+
+Let us first look at the perturbative expression. Once again, if one was to take the maxima, they would get $\log(2)$ for $\mathfrak{g}/(2\omega_{m}) = 1$. This again is a feature of the perturbative nature of our calculations. Usually we would not expect this value, but because of the reasons explained above, this value simply signifies that our perturbation is not valid when $\mathfrak{g}/(2\omega_{m}) \approx 1$, and is only valid when $\mathfrak{g}/(2\omega_{m}) \ll 1$. Another feature of this expression is that when you take the limit of the expression for $\mathfrak{g}/(2\omega_{m}) \rightarrow 0$, we get that the limit is also $0$. This is despite the nasty-looking $\log\big(\mathfrak{g}/(2\omega_{m})\big)$ which could have acted as a pole. And the reason for this is because of the coefficient of $\log\big(\mathfrak{g}/(2\omega_{m})\big)$ being an algebraic expression that falls faster than the logarithm.
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=12cm]{EEApprox.pdf}
     \caption{Comparison of the Perturbative Entanglement Entropy and its Approximation.}
     \label{fig: EE1}
 \end{figure}
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=15cm]{Coupling.pdf}
-    \caption{Comparison of Coupling for Different Cases:  (a) Static Case; (b) Non-static Correction $1$ (c) Non Static Correction $2$}
-    \label{fig:Coupling}
-\end{figure}
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=15cm]{ConcCases.pdf}
-    \caption{Comparison of Concurrence for Different Cases:  (a) Static Case; (b) Non-static Correction $1$ (c) Non Static Correction $2$}
-    \label{fig:Concurrence}
-\end{figure}
-\begin{figure}[htb]
+
+Let us now take a look at the graph of the Entanglement Entropy against $\mathfrak{g}/(2\omega_{m})$. Specifically at how much agreement there is between the approximation and the perturbative expressions. The approximation is a bit curious, because it has a term of $\log\big(\mathfrak{g}/(2\omega_{m})\big)$, which cannot be expanded around zero, and yet our approximation has the condition of working best near zero. Thus we had to keep the logarithm term in our expansion. And we can see that this led to a good agreement between the perturbative expression and its expansion. The expressions only seem to diverge when $\mathfrak{g}/(2\omega_{m})$ reaches near $0.3$. But, as stated before, $\mathfrak{g}/(2\omega_{m}) \ll 1$, and thus our expansion works very well with that range.
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=15cm]{EECases.pdf}
     \caption{Comparison of Entanglement Entropies for Different Cases:  (a) Static Case; (b) Non-static Correction $1$ (c) Non Static Correction $2$}
     \label{fig:EE2}
 \end{figure}
+\newpage
 The code for the visualisation can be found on \url{https://github.com/guprat/MSc_Dissertation}.
 \newpage
 \chapter{Conclusions}
